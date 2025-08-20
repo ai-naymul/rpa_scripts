@@ -197,7 +197,7 @@ async function extractLanguages(result) {
     if (langBar) {
         console.log("Clicking language bar to expand...");
         simulateClick(langBar);
-        await sleep(500);
+        await sleep(1000);
     }
 
     // UPDATED LANGUAGE SELECTORS
@@ -249,7 +249,7 @@ async function extractReadme(result) {
         if (readmeLink) {
             console.log("Found README link, clicking...");
             simulateClick(readmeLink);
-            await sleep(2000); // Wait longer for README to load
+            await sleep(1000); // Wait longer for README to load
             readmeElement = findElement(readmeSelectors);
         }
     }

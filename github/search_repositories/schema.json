@@ -1,0 +1,42 @@
+{
+    "name": "github_search_repositories",
+    "description": "Search for repositories on GitHub with filters and extract results",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search query for repositories"
+        },
+        "language": {
+          "type": "string",
+          "description": "Filter by programming language (optional)"
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort results by",
+          "enum": ["stars", "forks", "updated", "created", "best-match"],
+          "default": "best-match"
+        },
+        "maxResults": {
+          "type": "number",
+          "description": "Maximum number of results to extract",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 50
+        }
+      },
+      "required": ["query"]
+    },
+    "toolInfo": {
+      "emb": "GitHub repository search tool with filtering capabilities",
+      "thought": "Manually searching and filtering GitHub repositories is time-consuming. This tool performs the search and extracts structured results in one step.",
+      "baseUrl": "https://github.com",
+      "matchUrl": [
+        "https://github.com/",
+        "https://github.com/search*",
+        "https://github.com"
+      ]
+    }
+  }
+  
