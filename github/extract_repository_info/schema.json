@@ -1,0 +1,41 @@
+{
+    "name": "github_extract_repository_info",
+    "description": "Extract comprehensive information from a GitHub repository page including stars, forks, description, and file structure",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "includeFiles": {
+          "type": "boolean",
+          "description": "Whether to include file structure in the extraction",
+          "default": true
+        },
+        "includeLanguages": {
+          "type": "boolean", 
+          "description": "Whether to include language statistics",
+          "default": true
+        },
+        "includeReadme": {
+          "type": "boolean",
+          "description": "Whether to extract README content",
+          "default": false
+        },
+        "maxFiles": {
+          "type": "number",
+          "description": "Maximum number of files to extract",
+          "default": 50
+        }
+      },
+      "required": []
+    },
+    "toolInfo": {
+      "emb": "GitHub repository information extraction tool",
+      "thought": "Extracting repository information manually requires multiple clicks and scrolling. This tool gathers all key repository data in one execution, significantly reducing AI agent steps.",
+      "baseUrl": "https://github.com",
+      "matchUrl": [
+        "https://github.com/*/*",
+        "https://github.com/*/*/",
+        "https://github.com/*/*/tree/*",
+        "https://github.com/*/*/blob/*"
+      ]
+    }
+}
