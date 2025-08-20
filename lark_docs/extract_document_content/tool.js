@@ -74,7 +74,7 @@ async function waitForLarkDocLoad(maxWait) {
         
         if (wikiContent && docTitle) {
             console.log('Wiki content found, waiting for stabilization...');
-            await sleep(1000);
+            await sleep(800);
             return;
         }
         

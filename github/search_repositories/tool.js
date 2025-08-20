@@ -9,7 +9,7 @@ async function execute(params) {
         if (window.location.href !== searchUrl) {
             console.log(`Navigating to: ${searchUrl}`);
             window.location.href = searchUrl;
-            await sleep(1000);
+            await sleep(800);
         }
 
         // Ensure we're on repositories tab (fallback)
@@ -74,10 +74,10 @@ async function navigateToSearch(query) {
     if (searchInput) {
         searchInput.value = query;
         searchInput.form.submit();
-        await sleep(1000);
+        await sleep(800);
     } else {
         window.location.href = `/search?q=${encodeURIComponent(query)}&type=repositories`;
-        await sleep(1000);
+        await sleep(800);
     }
 }
 
@@ -91,7 +91,7 @@ async function ensureRepositoriesTab() {
     const repoTab = findElement(repoTabSelectors);
     if (repoTab && !repoTab.classList.contains('selected') && !repoTab.getAttribute('aria-current')) {
         simulateClick(repoTab);
-        await sleep(1000);
+        await sleep(800);
     }
 }
 
@@ -103,7 +103,7 @@ async function applyLanguageFilter(language) {
         if (link.textContent.toLowerCase().includes(language.toLowerCase()) || 
             link.href.includes(`language:${language}`)) {
             simulateClick(link);
-            await sleep(1000);
+            await sleep(800);
             return;
         }
     }
@@ -114,7 +114,7 @@ async function applyLanguageFilter(language) {
     const newQuery = `${currentQuery} language:${language}`;
     currentUrl.searchParams.set('q', newQuery);
     window.location.href = currentUrl.toString();
-    await sleep(1000);
+    await sleep(800);
 }
 
 async function applySortFilter(sort) {
@@ -140,7 +140,7 @@ async function applySortFilter(sort) {
     
     console.log(`Applying sort: ${sort}, URL: ${currentUrl.toString()}`);
     window.location.href = currentUrl.toString();
-    await sleep(1000);
+    await sleep(800);
 }
 
 // UPDATED: Generalized selectors to work across different GitHub layouts
