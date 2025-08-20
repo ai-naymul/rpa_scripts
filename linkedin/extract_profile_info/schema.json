@@ -1,0 +1,46 @@
+{
+    "name": "linkedin_extract_profile_info",
+    "description": "Extract information from a LinkedIn profile page including experience, education, and skills",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "includeExperience": {
+          "type": "boolean",
+          "description": "Whether to include work experience",
+          "default": true
+        },
+        "includeEducation": {
+          "type": "boolean",
+          "description": "Whether to include education information",
+          "default": true
+        },
+        "includeSkills": {
+          "type": "boolean",
+          "description": "Whether to include skills and endorsements",
+          "default": false
+        },
+        "maxExperience": {
+          "type": "number",
+          "description": "Maximum number of experience entries to extract",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 50
+        },
+        "waitForLoad": {
+          "type": "number",
+          "description": "Time to wait for profile to load (ms)",
+          "default": 3000
+        }
+      },
+      "required": []
+    },
+    "toolInfo": {
+      "emb": "LinkedIn profile information extraction tool for public profiles",
+      "thought": "Manually collecting LinkedIn profile information requires extensive scrolling and clicking. This tool extracts structured profile data in one execution with anti-detection measures.",
+      "baseUrl": "https://www.linkedin.com",
+      "matchUrl": [
+        "https://www.linkedin.com/in/*",
+        "https://linkedin.com/in/*"
+      ]
+    }
+  }
