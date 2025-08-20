@@ -1,0 +1,40 @@
+{
+    "name": "google_docs_extract_content",
+    "description": "Extract content from a Google Docs document including text, structure, and metadata",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "includeFormatting": {
+          "type": "boolean",
+          "description": "Whether to include text formatting information",
+          "default": false
+        },
+        "includeComments": {
+          "type": "boolean",
+          "description": "Whether to include document comments",
+          "default": false
+        },
+        "includeStructure": {
+          "type": "boolean",
+          "description": "Whether to analyze document structure",
+          "default": true
+        },
+        "maxBlocks": {
+          "type": "number",
+          "description": "Maximum number of content blocks to extract",
+          "default": 200
+        }
+      },
+      "required": []
+    },
+    "toolInfo": {
+      "emb": "Google Docs document content extraction tool",
+      "thought": "Manually copying content from Google Docs loses structure and formatting. This tool extracts structured content including headings, paragraphs, and metadata in one operation.",
+      "baseUrl": "https://docs.google.com",
+      "matchUrl": [
+        "https://docs.google.com/document/d/*/edit*",
+        "https://docs.google.com/document/d/*/view*",
+        "https://docs.google.com/document/d/*"
+      ]
+    }
+  }
